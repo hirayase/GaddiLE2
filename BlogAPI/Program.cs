@@ -33,8 +33,6 @@ namespace BlogAPI
                 };
             });
 
-             app.UseAuthorization();
-             app.UseAuthentication();
              builder.Services.AddTransient<ISqlData, SqlData>();
              builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
              builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
@@ -50,9 +48,9 @@ namespace BlogAPI
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
-
+            
             app.MapControllers();
 
             app.Run();
