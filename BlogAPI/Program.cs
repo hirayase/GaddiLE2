@@ -58,10 +58,8 @@ namespace BlogAPI
 
             app.UseHttpsRedirection();
 
-            app.UseCors("AllowAnyOrigin");
-
-            app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.MapControllers();
 
